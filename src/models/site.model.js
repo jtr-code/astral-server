@@ -1,19 +1,19 @@
-import mongoose from mongoose
+import mongoose from 'mongoose'
 
 const siteSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
-    trim:true
+    trim: true
   },
   description: {
-    title: String,
+    type: String,
     required: true,
-    trim:true
+    trim: true
   },
   author: {
     type: String,
-    trim:true
+    trim: true
   },
   image: {
     type: String,
@@ -21,13 +21,13 @@ const siteSchema = mongoose.Schema({
   },
   url: {
     type: String,
-    trim:true
+    trim: true
   },
   isTrending: {
     type: Boolean,
     default: false,
   }
-}, { timeStamps: true })
+}, { timestamps: true })
 
 const Site = mongoose.model("Site", siteSchema)
 
