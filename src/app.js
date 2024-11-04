@@ -13,10 +13,16 @@ app.use(cookieParser());
 
 app.use(morganMiddleware)
 
-// api routes
+// routes import
 import siteRouter from "./routes/site.route.js";
+import adminRouter from "./routes/admin.route.js";
+
+
+// api routes
 
 app.use("/api/v1/sites", siteRouter);
+app.use("/api/v1/admin", adminRouter);
+
 
 app.use(errorHandler);
 
