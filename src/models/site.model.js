@@ -9,11 +9,12 @@ const siteSchema = mongoose.Schema({
   description: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   author: {
     type: String,
-    trim: true
+    trim: true,
+    default: "",
   },
   image: {
     type: String,
@@ -21,7 +22,8 @@ const siteSchema = mongoose.Schema({
   },
   url: {
     type: String,
-    trim: true
+    trim: true,
+    default: "",
   },
   isTrending: {
     type: Boolean,
