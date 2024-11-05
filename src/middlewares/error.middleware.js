@@ -1,4 +1,6 @@
+import mongoose from "mongoose";
 import logger from "../logger/winston.logger.js";
+import { ApiError } from "../utils/ApiError.js"
 
 const errorHandler = (err, _req, res, _next) => {
   let error = err;
