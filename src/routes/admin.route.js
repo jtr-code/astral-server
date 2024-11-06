@@ -1,9 +1,10 @@
 import { Router } from 'express'
-import { createSite, updateSite } from '../controllers/admin.controller.js'
+import { createSite, deleteSite, updateSite } from '../controllers/admin.controller.js'
 
 const router = Router()
 
 router.post("/site", createSite)
-router.post("/site/:siteId", updateSite)
+router.put("/site/:siteId", updateSite)
+router.delete("/site/:siteId", deleteSite)
 
 export default router

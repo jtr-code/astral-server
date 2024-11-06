@@ -16,7 +16,6 @@ const createSite = asyncHandler(async (req, res, _next) => {
     isTrending
   })
 
-
   return res.status(201).json(new ApiResponse(200, site, "Site created successfully"))
 })
 
@@ -42,4 +41,17 @@ const updateSite = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, site, "Site updated successfully"));
 });
 
-export { createSite, updateSite }
+
+const deleteSite = asyncHandler(async (req, res) => {
+  const { siteId } = req.params
+
+  const site = await Site.findByIdAndDelete(siteId);
+
+  if (!site) {
+    throw new ApiError(404, "Site does not exist");
+  }
+
+  return res.status(200).json(new ApiResponse(200, { deletedSite: site }, "Site deleted successfully"))
+})
+
+export { createSite, updateSite, deleteSite }
